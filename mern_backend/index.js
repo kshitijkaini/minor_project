@@ -1,69 +1,51 @@
-var express=require("express");
-var bodyParser=require("body-parser");
-const port = 5000;
-const app = express();
-const path = require("path");
-// const cors = require('cors');
-            
-                                                
-             
-//connect to mongodb 
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const server = express();
+
+//connect to mongodb atlas
 mongoose.set('strictQuery', false);
-mongoose.connect("mongodb://127.0.0.1:27017/notesDB",{useNewUrlParser: true,useUnifiedTopology: true})
-.then(() => console.log("connection successful..")).catch((err) => console.log(err));
-var db=mongoose.connection;
+const url = "mongodb+srv://kshitij:3uHwP945tEPNC26o@cluster0.rl34brv.mongodb.net/?retryWrites=true&w=majority";
 
- 
-
-     
-
-//express app.use()(middleware)\using static html file
-
- 
-app.use(bodyParser.json());
-app.use(express.static('index'));
-app.use(bodyParser.urlencoded({   //body parser
-	extended: false
-}));
-// app.use(cors());
-
-//create a data scheme
-const notes_Schema =new mongoose.Schema({
-  title: String,      
-  content: String                    
-});
+const connectionParams = {
+    useNewUrlParser: true,     
+    // useCreateIndex: true,
+    useUnifiedTopology: true
+}
+mongoose.connect(url, connectionParams)
+    .then(() => {
+        console.log('Connected to database ')
+    })
+    .catch((err) => {
+        console.error(`Error connecting to the database. \n${err}`);
+    })
 
 
-//create a data model(model provides an interface to do CRUD operations.model is a wrapper on schema )
-//collection creation
-const Note = new mongoose.model("Note", notes_Schema);
-//creates documents or insert
-
-//
-// app.get("/", (req, res) => {
-//   console.log(__dirname);
-//   res.sendFile(path.join(__dirname,"index.html"));
-// });
 
 
-//let' make some action
-app.post("/",async function(req, res){
-  let newNote = new Note({
-    title:req.body.title,
-    content:req.body.content
-  });
-  newNote.save();
-  res.redirect('/');
+
+    
+
+
+
+server.use(cors());    //middlewre - it comes between client and server
+server.use(bodyParser.json());
+
+// CRUD - Create
+server.post('/', async (req, res) => {
+    console.log(req.body);
+    // res.send(req.body); -yesla chai feri client mai send gaecha
+    // let user = new User();
+    // user.username = req.body.username;
+    // user.password = req.body.password;
+    // const doc = await user.save();
+
+    // console.log(doc);
+    // res.json(doc);
 })
 
 
-
-//listen port
-app.listen(port, function() {
-  console.log(`server is running on ${port}`);
-})   
-
-
-
-
+server.listen(8080, () => {
+    console.log('server started')
+})
