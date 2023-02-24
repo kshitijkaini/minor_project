@@ -1,0 +1,331 @@
+/* *{
+    display: flex;
+    flex-wrap: wrap;
+} */
+/* .nav{
+    background: linear-gradient(135deg, #FFAA85 0%, #B3315F 100%);
+    position: sticky;
+    top:0%;
+} */
+
+
+/*
+
+.left{
+    position: absolute;
+    left: 34px;
+    top: 10px;
+    height: 25px;
+    font-size: 25px;
+    display:inline-block;
+
+}
+.mid{
+    position: absolute;
+    top: -16px;;
+    left: 225px;
+    
+}
+.mid li a{
+    text-decoration: none;
+    color:black;
+    font-size: 20px;
+   
+}
+.mid li{
+    list-style: none;
+    display:flex;
+    /* justify-content: center; */
+/* display:inline-block;
+     margin:12px 32px;
+}
+.mid li a:hover{
+    text-decoration: underline;
+}
+
+/*body*/
+/*.para{
+    background: linear-gradient(135deg, #FFAA85 0%, #B3315F 100%);
+    font-size: 22px;
+     margin: 70px;
+     padding: 30px;
+     height: 369px;
+     border-radius: 60px;
+     /* position: relative;
+     left:0px;
+     top:0px;
+     z-index: 10; */
+/*}
+#para2{
+    font-size: 5rem;
+    padding:0px 2px;
+    margin: -39px 49px;
+}
+img{
+    height: 600px;
+   width: 420px;
+   border-radius: 60px;
+   display: inline-block;
+   position:relative;
+   left: 844px;
+   top: -280px;
+}
+button{
+    display:inline-block;
+    color:white;
+    background: #0F0000;
+    border-radius: 7px;
+    position: absolute;
+    width: 136px;
+    height: 60px;
+    left: 81px;
+    top: 649px;
+    cursor: pointer;
+}
+.botton button:hover{
+    text-decoration: underline;
+}
+.watch{
+position: absolute;
+/* width: 163px;
+height: 54px; */
+/*left: 392px;
+top: 649px;
+}
+.watch:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.about h2{
+position: absolute;
+width: 221px;
+height: 74px;
+left: 606px;
+top: 803px;
+}
+.about p{
+ position: absolute;
+left: 536px;
+top: 848px;
+}
+.service h1{
+    font: size 49px;
+    position: absolute;
+    left: 535px;
+    top: 906px;
+}
+#sport{
+    border: 2px solid black;
+    height:350px ;
+    width: 1200px;
+    background-color: #967A7A;
+    border-radius:50px;
+    position: relative;
+    left:55px
+    
+}
+#sport img{
+    border: 2px solid black;
+    height: 268px;
+    width: 238px;
+    margin:0px 10px;
+    padding: 12px;
+    cursor: pointer;
+    position: relative;
+    top:27px;
+    left: 135px;
+}
+#sport span img:hover{
+    transform:translate(0px,3px) scale(1.1,1.1)
+   
+}
+
+/* footer style */
+
+/*.footer{
+  background-color:#000000;
+  padding: 2px;
+  font:white;
+ 
+
+}
+a{
+     text-decoration: none;
+}
+*/
+
+/* end */
+
+.wrapper {
+    font-size: 1.5rem;
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+.navBar {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+    border-radius: 20px;
+    width: 95%;
+    margin: auto;
+ 
+}
+
+.navLinks {
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    align-items: center;
+
+}
+
+.lis {
+    list-style: none;
+}
+
+.lis a {
+    text-decoration: none;
+    color: black;
+
+    padding: 2rem 2rem;
+
+}
+
+
+.khelcentre {
+    color: white;
+    background: #0F0000;
+    border-radius: 7px;
+    text-decoration: none;
+    border: 2px;
+    border-color: white;
+    padding: 7px;
+    margin-right: 170px;
+    margin-left: 50px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.mid {
+    display: flex;
+    padding: 0%;
+
+
+}
+
+.button {
+    color: white;
+    background: #0F0000;
+    border-radius: 7px;
+    width: 136px;
+    height: 75px;
+    cursor: pointer;
+    margin-left: 9%;
+    margin-top: 100%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.botton .button:hover {
+    text-decoration: underline;
+}
+
+.watch {
+    margin-left: 6%;
+    margin-top: 11%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border: 1px;
+    border-radius: 7px;
+    padding-left: 2px;
+    padding-right: 2px;
+
+}
+
+#photo {
+
+
+    width: 50%;
+    float: right;
+    position: relative;
+    top: -300px;
+    left: 129px;
+}
+
+#kick {
+    width: 100%;
+    height: 100%;
+    border-radius: 5000px;
+    object-fit: contain;
+    display: none;
+}
+
+.photo2 {
+    width: 200%;
+    /* margin: 1%;
+    padding: 2%;
+    border: 1%; */
+}
+
+.sport {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.photo2 {
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+}
+
+.fimg {
+    border-radius: 100px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.para {
+    height: 369px;
+    background: linear-gradient(135deg, #FFAA85 0%, #B3315F 100%);
+    padding: 5%;
+    height: 412px;
+    border-radius: 60px;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    /* margin-top: 4%; */
+   
+}
+
+#para2 {
+    font-size: 5rem;
+}
+
+.about {
+
+    text-align: center;
+}
+
+.service {
+    text-align: center;
+}
+
+
+.container {
+    border-radius: 120px 120px 0px 0px;
+    background-color: rgb(32, 31, 31);
+    border: 1%;
+    padding: 3rem;
+    color: whitesmoke;
+    margin-top: 10%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+}
+
+.footerFeature{
+    display: grid;
+            gap: 1rem;
+            grid-template-columns: 35% 35% 30%;
+            text-decoration: none;
+            font-size: 1.5rem;
+}

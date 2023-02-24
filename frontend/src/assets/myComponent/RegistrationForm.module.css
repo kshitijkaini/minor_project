@@ -1,0 +1,67 @@
+.container{
+    background-color:whitesmoke;
+    height: 420px;
+    border:2px solid;
+    padding: 50px;
+    border-radius: 40px;
+    text-align: center;
+   
+  
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+    
+
+
+span{
+    display: inline-block;
+    width: 93px;
+    text-align: left;
+    margin: 10px;
+}
+
+#gender {
+    display: inline;
+    font-size: 15px;
+    font-family:'Times New Roman', Times, serif ;
+}
+
+
+ 
+ #register{
+    text-align:center;
+    width: 200px;
+    height: 30px;
+    border: 1px solid;
+    border-radius: 20px;
+    background-image: radial-gradient( #ffffff 5%, #38ff9f 100%);
+    margin-top: 70px;
+
+}
+#register:hover{
+transform: translate(0px ,3px) scale(1.1,1.1);
+
+}
+#football{
+    width: 70px;
+    animation-name: ball;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+    offset-path: path("M 0 34.433 C 0 34.433 137.42000370664394 45.52630463957949 199.168 74.002 C 265.16032204894805 104.4350078965623 336.9227570747787 171.09807279394985 381.241 217.68 C 413.34203022089923 251.42068451928998 460.9300181192159 290.2968610900893 451.774 316.839 C 438.30138674705 355.894402444957 276.81718832400173 359.516572399736 199.168 391.714 C 127.14030576893552 421.58046119907743 0 500 0 500");
+    
+}
+@keyframes ball{
+    from {
+        offset-distance: 0%;
+      }
+    
+      to {
+        offset-distance: 100%;
+      }
+    
+
+}
