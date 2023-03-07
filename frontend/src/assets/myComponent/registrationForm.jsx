@@ -1,36 +1,52 @@
 import { Helmet } from "react-helmet";
 import style from './RegistrationForm.module.css';
+import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+
+        
+function Register() {  //................................................................this our main function
 
 
-function Register() { 
   const [form, setForm] = useState({});
- 
+   
 
- const handleForm = (e)=>{
+  const handleForm = (e) => {
     setForm({
       ...form,
-      [e.target.name] : e.target.value
+      [e.target.name]: e.target.value
 
     })
   }
 
-  const handleSubmit = async (e) =>{
-    // e.preventDefault();  yesla submit garda disappear hudaina
-    const response = await fetch('http://localhost:8080/',{
-      method:'POST',
-      body:JSON.stringify(form),
-      headers:{
-        'Content-Type':'application/json'
-      }   
+  const handleSubmit = async (e) => {
+    e.preventDefault();  //yesla submit garda disappear hudaina
+    const response = await fetch('http://localhost:8080/', {
+      method: 'POST',
+      body: JSON.stringify(form),
+      headers: {
+        'Content-Type': 'application/json'
+      }
     })
-    const data = await response.JSON();
-    console.log(data);
-  }
+  
+    const data = await response.json();
+    //console.log(data);
+    //console.log(data.status);
+    // if (data.status === 201) {
+    //   toast.success("Registration Successfully done !", {
+    //       position: "top-center"
+    //   })};
+    if (data.status === 201) {
+      alert("user registration done");
 
-  return (
+    }
+  }
+ 
+  
+
+  return (  //................................................................................. here is our return
     <>
-    
+
       <Helmet>
         <style>
           {`
@@ -54,7 +70,7 @@ function Register() {
                 name="full_name"
                 id={style.name}
                 placeholder="Enter your name"
-              
+
               />
             </div>
             <div className={style.detail}>
@@ -64,7 +80,7 @@ function Register() {
                 onChange={handleForm}
                 name="username"
                 placeholder="enter your username"
-            
+
               />
             </div>
             <div className={style.detail}>
@@ -74,7 +90,7 @@ function Register() {
                 onChange={handleForm}
                 name="email"
                 placeholder="enter your email"
-               
+
               />
             </div>
             <div className={style.detail}>
@@ -84,7 +100,7 @@ function Register() {
                 onChange={handleForm}
                 name="phone_number"
                 placeholder="Enter your phone number"
-               
+
               />
             </div>
             <div className={style.detail}>
@@ -94,7 +110,7 @@ function Register() {
                 onChange={handleForm}
                 name="password"
                 placeholder="Enter your password"
-                
+
               />
             </div>
             <div className={style.detail}>
@@ -104,7 +120,7 @@ function Register() {
                 onChange={handleForm}
                 name="confirm_password"
                 placeholder="confirm your password"
-               
+
               />
             </div>
 
@@ -120,6 +136,7 @@ function Register() {
             <div className={style.detail} id={style.x}>
               <input type="submit" id={style.register} />
             </div>
+            <p>Already have an account? <NavLink to="/">Log In</NavLink></p>
           </form>
         </div>
       </div>

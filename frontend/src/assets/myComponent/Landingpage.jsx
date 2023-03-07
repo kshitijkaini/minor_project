@@ -1,5 +1,6 @@
 import React from "react"
-
+import {useContext, useEffect ,useState,useRef} from 'react'
+import { useNavigate } from 'react-router-dom';
 import pic from '../images/football.jpg'
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet"
@@ -7,9 +8,111 @@ import style from './Landingpage.module.css';
 import pic1 from '../images/futsal.jpg';
 import pic2 from '../images/swim.jpg';
 import pic3 from '../images/gym.jpg';
+import Apple from "./menu";
+import Test from "./test";
+import { LoginContext } from './ContextProvider/Context';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import './test.css';
 
-function Landingpage() {
-  return (
+
+function Landingpage() {//................................................................................main fc
+
+     const { logindata, setLoginData } = useContext(LoginContext);
+     //.............
+    //  try {
+    //   console.log(logindata.ValidUserOne.full_name
+    //     )
+    // }
+    // catch(err) {
+    //   console.log(err)
+    // }
+    //...........................................
+    // console.log(logindata.ValidUserOne.full_name)
+     // console.log(logindata)
+    // const [data, setData] = useState(false);
+
+
+    const history = useNavigate();
+
+    const DashboardValid = async () => {
+        let token = localStorage.getItem("usersdatatoken");
+        //console.log(token) //test
+        const res = await fetch("http://localhost:8080/validuser", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": token
+            }
+        });
+
+        const data = await res.json();
+
+        if (data.status == 401 || !data) {
+            console.log("error page redirect")
+            history("*");
+        } else {
+            console.log("user verify");
+            setLoginData(data)
+            history("/landingpage");
+        }
+    }
+
+    useEffect(() => {
+        setTimeout(() => {
+            DashboardValid();
+            setData(true)
+        }, 2000)
+
+    }, [])
+    //..............----.........._................---....--....................logout&userprofile
+    
+    //..................
+    try {
+      var fun = logindata.ValidUserOne.email
+    }
+    catch (err) {
+      console.log(err)
+    }
+    //......
+    const logoutuser = async () => {
+      console.log("fuck you")
+  
+      try { var token = localStorage.getItem("usersdatatoken"); }
+      catch (err) {
+        console.log(err)
+      }
+      console.log(token);
+      const res = await fetch("http://localhost:8080/logout", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": token,
+          Accept: "application/json"
+  
+        }
+        //credentials: "include"
+  
+      });
+  
+      const data = await res.json();
+      console.log(data);
+  
+      if (data.status == 201) {
+        console.log("use logout");
+        localStorage.removeItem("usersdatatoken");
+        setLoginData(false)
+        history("/");
+      } else {
+        console.log("error");
+      }
+    }
+
+
+
+
+
+  return (//........................................................................................................
     <>
 
       <div className={style.wrapper}>
@@ -17,13 +120,17 @@ function Landingpage() {
           <div className={style.navBar}>
             <label className={style.khelcentre}>Khel Centre</label>
 
-            <div className={style.menu}>
+            <div className={style.menu}>   
               <ul class={style.navLinks}>
                 <li className={style.lis}><a href="#">Home</a></li>
                 <li className={style.lis}><a href="./map">Location</a></li>
-                <li className={style.lis}><a href="./LoginPage">Sign-in</a></li>
+                <li className={style.lis}><a href="./">Sign-in</a></li>
                 <li className={style.lis}><a href="./registrationForm">Sign-up</a></li>
-                <li className={style.lis}><a href="#">profile</a></li>
+                <li className={style.lis}><a onClick={() => { logoutuser() }}>Log-out</a></li>
+                
+                <li className={style.lis}><Test></Test>
+                
+                </li>
               </ul>
             </div>
           </div>
